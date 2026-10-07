@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XState Editor</title>
+    <style>body{height:100vh;margin:0;font-family:sans-serif;display:flex}aside{box-sizing:border-box;flex-direction:column;gap:8px;width:380px;padding:8px;display:flex}textarea{flex:1;font-family:monospace;font-size:12px}#error{color:#c00;white-space:pre-wrap}iframe{border:0;border-left:1px solid #ccc;flex:1}</style>
+    <script type="module" crossorigin src="/assets/index-BUsCDinV.js"></script>
+  </head>
+  <body>
+    <aside>
+      <input id="file" type="file" accept=".ts,.tsx,.js,.jsx,.mts,.cts" />
+      <textarea id="code" placeholder="Paste machine code here"></textarea>
+      <select id="machine" hidden></select>
+      <button id="render">Render</button>
+      <div id="error"></div>
+    </aside>
+    <iframe id="editor"></iframe>
+  </body>
+</html>

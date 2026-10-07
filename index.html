@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XState Editor</title>
+    <style>
+      body { margin: 0; display: flex; height: 100vh; font-family: sans-serif; }
+      aside { width: 380px; display: flex; flex-direction: column; gap: 8px; padding: 8px; box-sizing: border-box; }
+      textarea { flex: 1; font-family: monospace; font-size: 12px; }
+      #error { color: #c00; white-space: pre-wrap; }
+      aside[hidden] { display: none; }
+      #toggle { width: 16px; padding: 0; border: 0; border-left: 1px solid #ccc; cursor: pointer; }
+      iframe { flex: 1; border: 0; border-left: 1px solid #ccc; }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <input id="file" type="file" accept=".ts,.tsx,.js,.jsx,.mts,.cts" />
+      <textarea id="code" placeholder="Paste machine code here"></textarea>
+      <select id="machine" hidden></select>
+      <button id="render">Render</button>
+      <div id="error"></div>
+    </aside>
+    <button id="toggle" aria-label="Toggle code sidebar">‹</button>
+    <iframe id="editor"></iframe>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

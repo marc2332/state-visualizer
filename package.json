@@ -1,0 +1,18 @@
+{
+  "name": "xstate-editor-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.3.3"
+  },
+  "dependencies": {
+    "@xstate/machine-extractor": "^0.16.0",
+    "@xstate/tools-shared": "^4.1.0",
+    "lz-string": "^1.5.0"
+  }
+}
