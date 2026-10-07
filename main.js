@@ -58,11 +58,16 @@ $('file').onchange = async (e) => {
 };
 $('render').onclick = render;
 $('machine').onchange = (e) => show(machines[e.target.value]);
-$('toggle').onclick = () => {
-  const aside = document.querySelector('aside');
-  aside.hidden = !aside.hidden;
-  $('toggle').textContent = aside.hidden ? '›' : '‹';
+const setSidebar = (hidden) => {
+  document.querySelector('aside').hidden = hidden;
+  $('toggle').textContent = hidden ? '›' : '‹';
+  const url = new URL(location.href);
+  if (hidden) url.searchParams.set('sidebar', 'closed');
+  else url.searchParams.delete('sidebar');
+  history.replaceState(null, '', url);
 };
+$('toggle').onclick = () => setSidebar(!document.querySelector('aside').hidden);
+setSidebar(new URLSearchParams(location.search).get('sidebar') === 'closed');
 
 const shared = decompressFromEncodedURIComponent(location.hash.slice(1));
 if (shared) {
