@@ -1,6 +1,7 @@
 import { extractMachinesFromFile } from '@xstate/machine-extractor';
 import { forEachEntity } from '@xstate/tools-shared';
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string';
+import { inlineConstants } from './inline.js';
 
 const INLINE = '__@@INLINE_IMPLEMENTATION@@__';
 const $ = (id) => document.getElementById(id);
@@ -36,7 +37,7 @@ const render = () => {
   $('error').textContent = '';
   history.replaceState(null, '', `#${compressToEncodedURIComponent($('code').value)}`);
   try {
-    machines = extractMachinesFromFile($('code').value)?.machines.filter(Boolean) ?? [];
+    machines = extractMachinesFromFile(inlineConstants($('code').value))?.machines.filter(Boolean) ?? [];
   } catch (e) {
     $('error').textContent = e.message;
     return;

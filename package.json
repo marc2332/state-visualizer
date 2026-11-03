@@ -11,6 +11,7 @@
     "vite": "^8.3.3"
   },
   "dependencies": {
+    "@babel/parser": "^7.29.12",
     "@xstate/machine-extractor": "^0.16.0",
     "@xstate/tools-shared": "^4.1.0",
     "lz-string": "^1.5.0"
